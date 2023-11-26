@@ -1,7 +1,11 @@
 comp:
-	javac.exe Main.java database/*.java menu/*.java
+	javac Main.java database/*.java menu/*.java
 run: 
-	java.exe -cp ./mysql-jdbc.jar:. Main
+	java -cp ./mysql-jdbc.jar:. Main
+
+up:
+	make clear
+	make comp
 
 clear:
 	rm *.class

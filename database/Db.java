@@ -13,10 +13,11 @@ public class Db {
     // this function connects to DB.
 	public void getConnection() throws ClassNotFoundException, SQLException {
 		try{
-            Class.forName("com.mysql.jbdc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
         } catch(Exception x) {
-            System.err.println("Unabble to load the driver class in getConnection()");
+            System.err.println("Unable to load the driver class in getConnection()");
         }
-        conn = DriverManager.getConnection(dbURL, dbUser, dbPass);
+        this.conn = DriverManager.getConnection(dbURL, dbUser, dbPass);
+        System.out.println("Conn is linked to DB\n");
 	}
 }
