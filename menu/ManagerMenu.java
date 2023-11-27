@@ -13,7 +13,7 @@ public class ManagerMenu {
         this.db = db;
     }
 
-    public void mngInterace(){
+    public void mngInterface(){
         Scanner sc = new Scanner(System.in);
         // add db handler
         while(true){
