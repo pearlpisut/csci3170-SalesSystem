@@ -28,6 +28,8 @@ public class SalespersonMenu{
                 System.out.print("1. Part Name\n2. Manufacturer Name\n");
                 System.out.print("Choose the search criterion: ");
                 int search_criterion = sc.nextInt();
+                if(search_criterion != 1 && search_criterion != 2)
+                    System.err.println("Invalid search criterion!");
                 sc.nextLine();
                 System.out.print("Type in the Search Keyword: ");
                 String search_keyword = sc.nextLine();
@@ -37,21 +39,16 @@ public class SalespersonMenu{
                 int search_order = sc.nextInt();
     
                 // perform query operations
-                if(search_criterion == 1){
-		    System.out.println("search with value: " + search_keyword + " - " + search_order + "\n");
-                    dbHandler.searchPartsByName(search_keyword, search_order);
-                } else if(search_criterion == 2){
-                    dbHandler.searchPartsByManuName(search_keyword, search_order);
-                }
+                dbHandler.searchParts(search_keyword, search_order, search_criterion);
                 
             } else if(option == 2){ // sell a part
                 System.out.print("Enter The Part ID: ");
                 int part_id = sc.nextInt();
                 System.out.print("Enter The Salesperson ID: ");
-                int Salesperson_id = sc.nextInt();
+                int salesperson_id = sc.nextInt();
     
                 // perform query operations
-                
+                dbHandler.sellParts(part_id, salesperson_id);
             } else if(option == 3){
                 return;
             }

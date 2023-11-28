@@ -8,7 +8,7 @@ import database.*;
 
 public class Main {
 	public Main() {}
-	public static void initMain() throws SQLException{
+	public static void main(String[] args) throws SQLException{
 	    Db db = new Db();
         try{
             db.getConnection();

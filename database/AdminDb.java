@@ -22,7 +22,7 @@ public class AdminDb {
                 "CREATE TABLE category (cID INTEGER(1) NOT NULL PRIMARY KEY, cName VARCHAR(20) NOT NULL)",
                 "CREATE TABLE manufacturer (mID INTEGER(2) NOT NULL PRIMARY KEY, mName VARCHAR(20) NOT NULL, mAddress VARCHAR(50) NOT NULL, mPhoneNumber INTEGER(8) NOT NULL)",
                 "CREATE TABLE salesperson (sID INTEGER(2) NOT NULL PRIMARY KEY, sName VARCHAR(20) NOT NULL, sAddress VARCHAR(50) NOT NULL, sPhoneNumber INTEGER(8) NOT NULL, sExperience INTEGER(1) NOT NULL)",
-                "CREATE TABLE transaction (tID INTEGER(4) NOT NULL PRIMARY KEY, tdate DATE NOT NULL, pID INTEGER(3) NOT NULL, sID INTEGER(2) NOT NULL, FOREIGN KEY(pID) REFERENCES part(pID), FOREIGN KEY (sID) REFERENCES salesperson(sID))",
+                "CREATE TABLE transaction (tID INTEGER(4) NOT NULL PRIMARY KEY, pID INTEGER(3) NOT NULL, sID INTEGER(2) NOT NULL, tdate DATE NOT NULL, FOREIGN KEY(pID) REFERENCES part(pID), FOREIGN KEY (sID) REFERENCES salesperson(sID))",
         };
         System.out.printf("Processing...");
         for (int i = 0; i < createTables.length; i++) {
@@ -50,7 +50,7 @@ public class AdminDb {
         for (File file : listOfFiles) {
             if (file.isFile()) {
                 String fileName = file.getName();
-                if (fileName.startsWith("category")) {
+                /*if (fileName.startsWith("category")) {
                     CategoryHandler ch = new CategoryHandler(this.db);
                     ch.handleCategoryFile(file);
                 } else if (fileName.startsWith("manufacturer")) {
@@ -65,7 +65,7 @@ public class AdminDb {
                 } else if (fileName.startsWith("transaction")) {
                     TransactionHandler th = new TransactionHandler(this.db);
                     th.handleTransactionFile(file);
-                }
+                }*/
             }
         }
         System.out.println("Done! Data is inputted to the database!");
@@ -77,7 +77,7 @@ public class AdminDb {
 
     public void showTables(String tableName) throws SQLException {
         System.out.println("Content of table " + tableName + ":");
-        switch (tableName) {
+        /*switch (tableName) {
             case "category":
                 new CategoryHandler(this.db).printCategory(tableName);
                 break;
@@ -96,7 +96,7 @@ public class AdminDb {
             default:
                 System.out.println("Invalid table name");
                 break;
-        }
+        }*/
         System.out.println();
     }
 }
