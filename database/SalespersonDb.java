@@ -25,10 +25,7 @@ public class SalespersonDb {
         } else {
             search_parameter = "M.mName";
         }
-        String query = String.format(
-            "SELECT P.*, M.mName, C.cName from part P join manufacturer M on M.mID = P.mID " +
-            "join category C on C.cID = P.cID where %s = '%s' order by %s %s"
-            , search_parameter, name, search_parameter, order);
+        String query = "SELECT P.*, M.mName, C.cName from part P join manufacturer M on M.mID = P.mID join category C on C.cID = P.cID where " + search_parameter + " LIKE '%" + name + "%' order by " + search_parameter + " " + order;
         ResultSet rs = stmt.executeQuery(query);
         System.out.println("| ID | Name | Manufacturer | Category | Quantity | Warranty | Price |");
 	    while(rs.next()){
@@ -40,13 +37,10 @@ public class SalespersonDb {
             String mName = rs.getString(8);
             String cName = rs.getString(9);
             System.out.println(
-                String.format("| %d | %s | %s | %s | %d | %d | %d |\n", 
+                String.format("| %d | %s | %s | %s | %d | %d | %d |", 
                 pid, pname, mName, cName, quant, warrant, price)
             );
         }
-        stmt.close();
-        db.conn.close();
-        rs.close();
     }
 
     public void sellParts(int part_id, int salesperson_id) throws SQLException{
@@ -81,8 +75,8 @@ public class SalespersonDb {
             stmtt.setInt(3, salesperson_id);
             stmtt.setDate(4, today);
             stmtt.execute();
-        } catch (SQLException sql_e) {
-            System.out.println(sql_e);
+        } catch (SQLException x) {
+            System.out.println(x);
         }
     }
 }
