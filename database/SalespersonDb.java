@@ -50,7 +50,11 @@ public class SalespersonDb {
         ResultSet rs = stmt.executeQuery(query_enquire_quantity);
         int quant = 0, transaction_count = 0;
         if(rs.next()) quant = rs.getInt(1);
-        else return;
+        else{ 
+            System.err.println("The part is unavailable!");
+            return;
+        }	
+    ;
         String product_name = rs.getString(2);
         if(quant == 0){
             System.err.println("This item is out of stock!");

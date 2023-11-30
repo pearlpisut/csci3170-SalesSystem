@@ -25,7 +25,7 @@ public class ManagerMenu {
             int option = sc.nextInt();
             System.out.print("\n");
             if(option == 1){
-                System.out.print("Choose ordering:\n");
+                System.out.print("Choose ordering: ");
                 System.out.print("1. By ascending order\n2. By descending order\n");
                 System.out.println("Choose the list ordering: ");
                 int search_order = sc.nextInt();
