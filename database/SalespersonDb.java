@@ -25,7 +25,7 @@ public class SalespersonDb {
         } else {
             search_parameter = "M.mName";
         }
-        String query = "SELECT P.*, M.mName, C.cName from part P join manufacturer M on M.mID = P.mID join category C on C.cID = P.cID where " + search_parameter + " LIKE '%" + name + "%' order by " + search_parameter + " " + order;
+        String query = "SELECT P.*, M.mName, C.cName from part P join manufacturer M on M.mID = P.mID join category C on C.cID = P.cID where " + search_parameter + " LIKE '%" + name + "%' order by P.pPrice " + order;
         ResultSet rs = stmt.executeQuery(query);
         System.out.println("| ID | Name | Manufacturer | Category | Quantity | Warranty | Price |");
 	    while(rs.next()){
