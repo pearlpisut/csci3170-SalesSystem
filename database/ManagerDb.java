@@ -55,8 +55,8 @@ public class ManagerDb {
     public void showTotalSalesManu() throws SQLException{
         Statement stmt = db.conn.createStatement();
         String query = String.format(
-            "SELECT M.mID, M.mName, SUM(P.pPrice) as totalValue from manufacturer M join part P on M.mID = P.mID " + 
-            "group by M.mID, M.mName order by totalValue DESC"
+            "SELECT M.mID, M.mName, SUM(P.pPrice) as totalVal from manufacturer M join part P on M.mID = P.mID join " + 
+            "transaction T on T.pID = P.pID group by M.mID, M.mName order by totalVal DESC"
             );
         ResultSet rs = stmt.executeQuery(query);
         System.out.println("| Manufacturer ID | Manufacturer Name | Total Sales Value |");
