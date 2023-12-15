@@ -1,5 +1,5 @@
 # csci3170-SalesSystem
-This is the course project *Sales System* for **CSCI3170 - Introduction to Database Systems** by `group22`.
+This is the course project *Sales System* for **CSCI3170 - Introduction to Database Systems** by `group22`. It provides interfaces for multiple types of users to perform queries to MySQL server via JDBC in Java.
 ## contributors
 Munkhbileg Batdorj, 1155155853
 
